@@ -24,7 +24,9 @@ output = {
     "actualizado": current["time"],
 }
 
-with open("data.json", "w", encoding="utf-8") as f:
+import os
+ruta_data = os.path.join(os.path.dirname(__file__), "..", "data.json")
+with open(ruta_data, "w", encoding="utf-8") as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
 
 print("Listo, data.json creado con estos datos:")

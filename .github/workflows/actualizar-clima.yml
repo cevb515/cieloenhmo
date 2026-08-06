@@ -1,0 +1,31 @@
+name: Actualizar clima
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Descargar el codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Correr el script de clima
+        run: python scripts/fetch_weather.py
+
+      - name: Guardar y subir el nuevo data.json
+        run: |
+          git config user.name "Robot de cieloenhmo"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Actualiza datos del clima"
+          git push
