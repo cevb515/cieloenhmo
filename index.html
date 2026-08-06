@@ -6,6 +6,23 @@
 </head>
 <body>
   <h1>cieloenhmo</h1>
-  <p>Reporte del cielo y clima de Hermosillo. Próximamente.</p>
+  <p>Reporte del cielo y clima de Hermosillo.</p>
+
+  <div id="clima">Cargando datos del clima...</div>
+
+  <script>
+    fetch("data.json")
+      .then(function (respuesta) {
+        return respuesta.json();
+      })
+      .then(function (datos) {
+        document.getElementById("clima").innerHTML =
+          "Temperatura: " + datos.temperatura + "°C<br>" +
+          "Sensación: " + datos.sensacion + "°C<br>" +
+          "Humedad: " + datos.humedad + "%<br>" +
+          "Viento: " + datos.viento + " km/h<br>" +
+          "Actualizado: " + datos.actualizado;
+      });
+  </script>
 </body>
 </html>
