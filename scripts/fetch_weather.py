@@ -8,6 +8,7 @@ url = (
     "https://api.open-meteo.com/v1/forecast"
     f"?latitude={LATITUDE}&longitude={LONGITUDE}"
     "&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m"
+    "&daily=sunrise,sunset"
     "&timezone=America/Hermosillo"
 )
 
@@ -15,6 +16,7 @@ with urllib.request.urlopen(url) as response:
     data = json.load(response)
 
 current = data["current"]
+daily = data["daily"]
 
 output = {
     "temperatura": current["temperature_2m"],
@@ -22,6 +24,8 @@ output = {
     "humedad": current["relative_humidity_2m"],
     "viento": current["wind_speed_10m"],
     "actualizado": current["time"],
+    "amanecer": daily["sunrise"][0],
+    "atardecer": daily["sunset"][0],
 }
 
 import os
