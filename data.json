@@ -1,9 +1,9 @@
 {
-  "temperatura": 27.7,
-  "sensacion": 30.3,
-  "humedad": 71,
-  "viento": 15.3,
-  "actualizado": "2026-08-12T07:45",
+  "temperatura": 30.3,
+  "sensacion": 33.2,
+  "humedad": 59,
+  "viento": 11.5,
+  "actualizado": "2026-08-12T09:00",
   "amanecer": "2026-08-12T05:51",
   "atardecer": "2026-08-12T19:06"
 }
