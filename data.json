@@ -1,9 +1,9 @@
 {
-  "temperatura": 42.6,
-  "sensacion": 48.8,
-  "humedad": 26,
-  "viento": 0.4,
-  "actualizado": "2026-08-21T13:15",
+  "temperatura": 43.9,
+  "sensacion": 48.9,
+  "humedad": 23,
+  "viento": 1.6,
+  "actualizado": "2026-08-21T14:15",
   "amanecer": "2026-08-21T05:56",
   "atardecer": "2026-08-21T18:57"
 }
