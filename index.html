@@ -13,6 +13,14 @@
       background: linear-gradient(180deg, #1a2a4a 0%, #3a5a8a 100%);
       font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
       color: #1a1a1a;
+      padding: 24px 12px;
+    }
+
+    .contenedor {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .tarjeta {
@@ -76,12 +84,7 @@
   </style>
 </head>
 <body>
-  <div class="tarjeta">
-    <h1>cieloenhmo</h1>
-    <p class="subtitulo">Hermosillo, Sonora</p>
-
-    <div id="clima">Cargando...</div>
-  </div>
+  <div class="contenedor" id="contenedor">Cargando...</div>
 
   <script>
     function formatHora(iso) {
@@ -99,16 +102,24 @@
         return respuesta.json();
       })
       .then(function (datos) {
-        document.getElementById("clima").innerHTML =
-          '<p class="temp-principal">' + Math.round(datos.temperatura) + '°C</p>' +
-          '<p class="sensacion">Sensación ' + Math.round(datos.sensacion) + '°C</p>' +
-          '<div class="detalles">' +
-            '<div class="detalle"><span class="icono">💧</span>' + datos.humedad + '%</div>' +
-            '<div class="detalle"><span class="icono">💨</span>' + datos.viento + ' km/h</div>' +
-            '<div class="detalle"><span class="icono">🌅</span>' + formatHora(datos.amanecer) + '</div>' +
-            '<div class="detalle"><span class="icono">🌇</span>' + formatHora(datos.atardecer) + '</div>' +
-          '</div>' +
-          '<p class="actualizado">Actualizado ' + formatFechaHora(datos.actualizado) + '</p>';
+        var html = "";
+        datos.ciudades.forEach(function (ciudad) {
+          html +=
+            '<div class="tarjeta">' +
+              '<h1>' + ciudad.nombre + '</h1>' +
+              '<p class="subtitulo">cieloenhmo</p>' +
+              '<p class="temp-principal">' + Math.round(ciudad.temperatura) + '°C</p>' +
+              '<p class="sensacion">Sensación ' + Math.round(ciudad.sensacion) + '°C</p>' +
+              '<div class="detalles">' +
+                '<div class="detalle"><span class="icono">💧</span>' + ciudad.humedad + '%</div>' +
+                '<div class="detalle"><span class="icono">💨</span>' + ciudad.viento + ' km/h</div>' +
+                '<div class="detalle"><span class="icono">🌅</span>' + formatHora(ciudad.amanecer) + '</div>' +
+                '<div class="detalle"><span class="icono">🌇</span>' + formatHora(ciudad.atardecer) + '</div>' +
+              '</div>' +
+              '<p class="actualizado">Actualizado ' + formatFechaHora(ciudad.actualizado) + '</p>' +
+            '</div>';
+        });
+        document.getElementById("contenedor").innerHTML = html;
       });
   </script>
 </body>
