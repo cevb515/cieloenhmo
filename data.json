@@ -2,21 +2,21 @@
   "ciudades": [
     {
       "nombre": "Hermosillo",
-      "temperatura": 37.0,
-      "sensacion": 39.1,
-      "humedad": 25,
-      "viento": 6.7,
-      "actualizado": "2026-10-02T13:15",
+      "temperatura": 34.9,
+      "sensacion": 36.6,
+      "humedad": 32,
+      "viento": 2.1,
+      "actualizado": "2026-10-02T17:00",
       "amanecer": "2026-10-02T06:17",
       "atardecer": "2026-10-02T18:08"
     },
     {
       "nombre": "Guadalajara",
-      "temperatura": 26.9,
-      "sensacion": 29.5,
-      "humedad": 47,
-      "viento": 4.1,
-      "actualizado": "2026-10-02T14:15",
+      "temperatura": 26.3,
+      "sensacion": 26.9,
+      "humedad": 49,
+      "viento": 6.6,
+      "actualizado": "2026-10-02T18:00",
       "amanecer": "2026-10-02T06:44",
       "atardecer": "2026-10-02T18:40"
     }
